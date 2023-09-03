@@ -2,8 +2,16 @@ package main
 
 import (
 	"fmt"
+	tp "learn-go/toppackage"
+	"learn-go/toppackage/middlepackage/bottompackage"
 	"time"
 )
+
+type Age int
+
+func (age Age) prt() {
+	fmt.Println("I am", age)
+}
 
 type Person struct {
 	Name        string
@@ -12,7 +20,10 @@ type Person struct {
 }
 
 func main() {
-
+	var age = Age(15)
+	age.prt()
+	tp.Test()
+	fmt.Println(bottompackage.AddInts(2, 4))
 	fmt.Println("Well done!")
 
 	defer metricTime(time.Now())
@@ -29,6 +40,8 @@ func main() {
 	}
 	fmt.Println(man)
 	m := map[int]string{1: "first"}
+	rt := map[int]int{1: 56, 4: 34, 6: 1231}
+	fmt.Println("rt = ", rt)
 	v, ok := m[1]
 	fmt.Println(v, ok)
 	delete(m, 2) // ошибки не будет
@@ -55,7 +68,7 @@ func main() {
 
 func metricTime(start time.Time) {
 	// функция Now() возвращает текущее время, а функция Sub возвращает разницу между двумя временными метками
-	fmt.Println(time.Now().Sub(start))
+	fmt.Println(time.Since(start))
 }
 
 // not clear!!!
