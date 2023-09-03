@@ -2,13 +2,19 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"time"
 )
 
 func main() {
-	for i := 0; i < 10; i++ {
-		// fmt.Println("shceduled goroutine ", i)
-		go fmt.Println(i)
+	fmt.Println("yeah baby 1!")
+	runtime.GOMAXPROCS(1)
+
+	start := time.Now()
+	go func() {
+		fmt.Println("yeah baby 2!", time.Since(start))
+	}()
+
+	for {
 	}
-	time.Sleep(100000)
 }

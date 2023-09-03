@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	tower := buildTower(10)
+	tower := buildTower(100)
 	for _, row := range tower {
 		fmt.Println(row)
 	}
