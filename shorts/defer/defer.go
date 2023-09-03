@@ -11,4 +11,8 @@ func main() {
 		a++
 		fmt.Println(a)
 	}()
+
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
 }
