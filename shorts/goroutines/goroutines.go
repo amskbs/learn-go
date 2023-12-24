@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"strconv"
 	"time"
 )
 
@@ -16,5 +17,16 @@ func main() {
 	}()
 
 	for {
+	}
+}
+
+func Printf(v interface{}) {
+	switch v2 := v.(type) {
+	case int:
+		fmt.Print("Это число " + strconv.FormatInt(1, 10))
+	case string:
+		fmt.Print("Это строка " + v2)
+	default:
+		fmt.Print("Неизвестный тип")
 	}
 }
